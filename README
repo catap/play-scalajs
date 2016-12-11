@@ -2,6 +2,7 @@ This is your new Play application with ScalaJS
 ==============================================
 
 This project is based on https://github.com/playframework/play-scala
+ and shown how to add to play-scala a ScalaJS with jquery and boostrap onver webjars.
 
 This file will be packaged with your application when using `activator dist`.
 

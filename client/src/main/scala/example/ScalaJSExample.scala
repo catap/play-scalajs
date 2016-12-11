@@ -1,7 +1,6 @@
 package example
 
-import org.scalajs.dom
-import org.scalajs.dom.raw._
+import org.scalajs.jquery.{jQuery=>$}
 
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.global
@@ -12,14 +11,7 @@ object ScalaJSExample extends js.JSApp {
     if (global.console != null) {
       global.console.log(s"Welcome to your Play application with Scala JS, your shared message is: ${SharedMessages.itWorks}")
     }
-    val namespaceResolver: js.Function1[String, String] = null
-    dom.document.evaluate("//div[@class='wrapper' and not(@id)]/h1/a",
-      dom.document, namespaceResolver, XPathResult.ANY_TYPE, null).iterateNext() match {
-      case null =>
-        global.alert("Something strange, I can't found the header")
-
-      case node: Node =>
-        node.textContent = s"${node.textContent} ${SharedMessages.itWorks}"
-    }
+    val elm = $(".wrapper").not(".doc").find("a")
+    elm.text(s"${elm.text()} ${SharedMessages.itWorks}")
   }
 }
